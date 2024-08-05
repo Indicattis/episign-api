@@ -1,0 +1,8 @@
+-- AlterTable
+ALTER TABLE `docs` MODIFY `status` BOOLEAN NOT NULL DEFAULT false;
+
+-- AlterTable
+ALTER TABLE `employees` ADD COLUMN `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3);
+
+-- AddForeignKey
+ALTER TABLE `docs` ADD CONSTRAINT `docs_emp_id_fkey` FOREIGN KEY (`emp_id`) REFERENCES `employees`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
